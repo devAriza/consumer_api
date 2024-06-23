@@ -3,7 +3,7 @@ import json
 
 def get_pokemon(url='https://pokeapi.co/api/v2/pokemon-form/',offset = 0):
 
-    args = {'offset' : offset} if offset != 0 else {}
+    args = {'offset': offset} if offset != 0 else {}
 
     response = requests.get(url, params = args)
 
@@ -22,8 +22,26 @@ def get_pokemon(url='https://pokeapi.co/api/v2/pokemon-form/',offset = 0):
         if next == 'y':
             get_pokemon(offset=offset+20)
 
+def get_info_pokemon(name):
+    if name == '':
+        name = 'pikachu'
+
+    url = 'https://pokeapi.co/api/v2/pokemon/'
+    url_full = url + name
+
+    response = requests.get(url_full)
+
+    if response.status_code == 200:
+        response_json = json.loads(response.text)
+        nombre = response_json['name']
+        print(nombre)
+
 if __name__ == '__main__':
-    get_pokemon()
+
+    pokemon = input("Ingrese nombre de Pokemon: ").lower()
+    get_info_pokemon(pokemon)
+
+    #get_pokemon()
     '''
     url = 'https://pokeapi.co/api/v2/pokemon-form/' #lista de pokemons
 

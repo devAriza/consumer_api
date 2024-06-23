@@ -6,12 +6,13 @@ if __name__ == '__main__':
     url = 'http://httpbin.org/get'
     args = {'nombre': 'Jorge', 'curso': 'python', 'nivel': 'intermedio'}
     response = requests.get(url,params=args)
-
+    print(response.json())
     if response.status_code == 200:
 
         response_json = json.loads(response.text)
         origin = response_json['origin']
         print(origin)
+        print(f"URL completa: {response.url}")
 
         # response_json = response.json()
         # origin = response_json['origin']
