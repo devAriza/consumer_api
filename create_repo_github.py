@@ -6,12 +6,12 @@ load_dotenv()
 
 client_id = os.getenv('client_id')
 client_secret = os.getenv('client_secret')
-code = '44a4cb967ecfceca3a8d'
-access_token = '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'
+code = '#code_obtenido'
+access_token = '#access_token'
 
 if __name__=='__main__':
     url = 'https://api.github.com/user/repos'
-    paylod = {'name': 'new_repo_withAPIGitHub'}
+    paylod = {'name': '#name_new_repo'}
     headers = {'Accept': 'application/json', 'Authorization': 'token ' + access_token}
 
     response = requests.post(url, headers=headers, json=paylod)

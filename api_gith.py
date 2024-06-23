@@ -8,9 +8,9 @@ client_id = os.getenv('client_id')
 client_secret = os.getenv('client_secret')
 print(client_id, client_secret)
 
-code = '1be64fd42bdfd5c4bf2a'
+code = '#code_obtenido'
 #nos permite informacion del usuario logeado con GitHub
-access_token = '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'
+access_token = '#access_token'
 #obtener access token, que permite realizar peticiones
 #https://github.com/login/oauth/authorize?client_id=client_id&scope=repo
 
@@ -19,7 +19,7 @@ if __name__ == '__main__':
     url = 'https://api.github.com/user/repos'
 
     #access_token puede ir encabezados o url
-    headers = {'Authorization': 'token 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'}
+    headers = {'Authorization': 'token #access_token'}
 
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
