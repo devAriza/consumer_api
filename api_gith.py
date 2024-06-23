@@ -8,11 +8,11 @@ client_id = os.getenv('client_id')
 client_secret = os.getenv('client_secret')
 print(client_id, client_secret)
 
-code = '91974405fd5bc03082a4'
+code = '1be64fd42bdfd5c4bf2a'
 #nos permite informacion del usuario logeado con GitHub
-access_token = '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'
+access_token = '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'
 #obtener access token, que permite realizar peticiones
-#https://github.com/login/oauth/authorize?client_id=client_id&scope=respo
+#https://github.com/login/oauth/authorize?client_id=client_id&scope=repo
 
 if __name__ == '__main__':
     #endpoint para obtener repos
@@ -31,16 +31,15 @@ if __name__ == '__main__':
     else:
         print(response.content)
 
-    '''
-    #obtener access_token para la informacion de usuario logeado
-    url = 'https://github.com/login/oauth/access_token'
-    payload = {'client_id': client_id, 'client_secret': client_secret, 'code': code}
-    headers = {'Accept': 'application/json'}
-    response = requests.post(url, json=payload, headers=headers)
 
-    if response.status_code == 200:
-        response_json = response.json()
+    #obtener access_token para la informacion de usuario logeado
+    url1 = 'https://github.com/login/oauth/access_token'
+    payload1 = {'client_id': client_id, 'client_secret': client_secret, 'code': code}
+    headers1 = {'Accept': 'application/json'}
+    response1 = requests.post(url1, json=payload1, headers=headers1)
+
+    if response1.status_code == 200:
+        response_json = response1.json()
         print(response_json)
         access_token = response_json['access_token']
         print(access_token)
-    '''
